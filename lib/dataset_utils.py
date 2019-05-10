@@ -315,6 +315,7 @@ def get_filenames(dataset_name, split):
     if dataset_name in [
         "cifar10",
         "svhn",
+        "mnist",
         "cifar_unnormalized",
         "imagenet_32",
     ]:

@@ -84,6 +84,7 @@ imagenet_overrides = dict(
     gaussian_noise=False,
 )
 svhn_overrides = dict(gaussian_noise=False, vat_epsilon=1.0)
+mnist_overrides = dict(gaussian_noise=False, vat_epsilon=1.0)
 dataset_overrides = dict(
     cifar10=cifar10_overrides,
     cifar_unnormalized=cifar_unnormalized_overrides,
@@ -91,6 +92,7 @@ dataset_overrides = dict(
     imagenet_32=imagenet_overrides,
     imagenet_64=imagenet_overrides,
     svhn=svhn_overrides,
+    mnist = mnist_overrides
 )
 
 
