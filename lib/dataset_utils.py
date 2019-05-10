@@ -41,6 +41,7 @@ DATASET_SHAPE = {
     "cifar10": (None, 32, 32, 3),
     "cifar_unnormalized": (None, 32, 32, 3),
     "svhn": (None, 32, 32, 3),
+    "mnist": (None, 28,28,3),
     "svhn_extra": (None, 32, 32, 3),
     "imagenet_32": (None, 32, 32, 3),
 }
@@ -48,6 +49,7 @@ DATASET_DTYPE = {
     "cifar10": tf.float32,
     "cifar_unnormalized": tf.uint8,
     "svhn": tf.uint8,
+    "mnist":tf.uint8,
     "svhn_extra": tf.uint8,
     "imagenet_32": tf.uint8,
 }
@@ -55,6 +57,7 @@ DATASET_CLASS_COUNT = {
     "cifar10": 10,
     "cifar_unnormalized": 10,
     "svhn": 10,
+    "mnist":10,
     "svhn_extra": 10,
     "imagenet_32": 1000,
 }
@@ -64,10 +67,12 @@ DATASET_EXAMPLE_COUNT = {
         "cifar_unnormalized": 50000 - 5000,
         "svhn": 73257 - 7326,
         "svhn_extra": 531131,
+        "mnist": 60000-10000,
         "imagenet_32": 1281167 - 50050,
     },
     "test": {
         "cifar10": 10000,
+        "mnist":10000,
         "cifar_unnormalized": 10000,
         "svhn": 26032,
         "imagenet_32": 50000,
@@ -76,6 +81,7 @@ DATASET_EXAMPLE_COUNT = {
         "cifar10": 5000,
         "cifar_unnormalized": 5000,
         "svhn": 7326,
+        "mnist":10000,
         "imagenet_32": 50050,
     },
 }

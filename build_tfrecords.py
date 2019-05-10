@@ -47,7 +47,7 @@ import scipy.io
 
 from lib import dataset_utils
 from lib import paths
-
+import input
 flags.DEFINE_string(
     "directory",
     paths.BUILD_TFRECORDS_DOWNLOAD_PATH,
@@ -55,13 +55,14 @@ flags.DEFINE_string(
 )
 
 flags.DEFINE_integer("seed", 0, "Random seed for determinism.")
-
-flags.DEFINE_string("dataset_name", "default", "Name of dataset")
+flags.DEFINE_string('data_dir','/Users/yuqing/github_proj/privacy/research','Temporary storage')
+flags.DEFINE_string("dataset_name", "mnist", "Name of dataset")
 
 FLAGS = flags.FLAGS
 
 COUNTS = {
     "svhn": {"train": 73257, "test": 26032, "valid": 7326, "extra": 531131},
+    "mnist":{"train":60000, "test":10000,"valid":10000, "extra":0},
     "cifar10": {"train": 50000, "test": 10000, "valid": 5000, "extra": 0},
     "imagenet_32": {
         "train": 1281167,
@@ -200,6 +201,8 @@ def main(_):
         train_set, test_set = _load_cifar10(normalize=False)
     elif FLAGS.dataset_name == "imagenet_32":
         train_set, test_set = _load_imagenet_32()
+    elif FLAGS.dataset_name == 'mnist':
+        train_set, test_set = input.ld_mnist()
     else:
         raise ValueError("Unknown dataset", FLAGS.dataset_name)
 

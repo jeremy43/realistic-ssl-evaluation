@@ -57,7 +57,7 @@ from lib import dataset_utils
 from lib import paths
 
 
-flags.DEFINE_string("dataset_name", "default", "Name of source dataset.")
+flags.DEFINE_string("dataset_name", "mnist", "Name of source dataset.")
 flags.DEFINE_string(
     "n_labeled_list",
     "100,250,500,1000,2000,4000,8000",
@@ -139,7 +139,7 @@ def build_single_label_map(
                 len(unique_ids), n_labeled_per_class, replace=False
             )
             result_dict["values"] += [unique_ids[n] for n in random_ids]
-    elif dataset_name in {"cifar10", "svhn", "cifar_unnormalized"}:
+    elif dataset_name in {"cifar10", "svhn","mnist", "cifar_unnormalized"}:
         path = os.path.join(fkeys_path, dataset_name, "label_to_fkeys_train")
         with gfile.GFile(path, "r") as f:
             label_to_fkeys = json.load(f)
